@@ -1,7 +1,10 @@
 package com.discography.demo.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.discography.demo.model.Artist;
 import com.discography.demo.repository.ArtistRepository;
 
 @Service
@@ -13,5 +16,7 @@ public class ArtistService {
         this.artistRepository = artistRepository;
     }
 
-    //Here'll be all the logic related with an artist
+    public List<Artist> getAllTheArtist() {
+        return artistRepository.findAll();
+    }
 }
