@@ -19,4 +19,11 @@ public class TrackService {
     public List<Track> getAllTracks() {
         return trackRepository.findAll();
     }
+
+    private boolean removeTrackById(String idTrack) {
+        if (idTrack == null) return false;
+
+        trackRepository.deleteById(idTrack);
+        return true;
+    }
 }
