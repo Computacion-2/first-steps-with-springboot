@@ -29,6 +29,7 @@ public class ArtistService {
         artistRepository.save(newArtist);
     }
 
+    //Asign a id to Artist with a defined format: "A0000x"
     private String idGeneration() {
 
         Optional<Artist> lastOptionalArtist = artistRepository.findTopByOrderByIdDesc();
@@ -41,5 +42,12 @@ public class ArtistService {
         updateId++;
 
         return String.format("A%04d", updateId);
+    }
+
+    private boolean removeArtistById(String idArtist) {
+        if (idArtist != null) return false;
+
+        artistRepository.deleteById(idArtist);
+        return true;
     }
 }
