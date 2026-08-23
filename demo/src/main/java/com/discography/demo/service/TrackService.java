@@ -1,7 +1,10 @@
 package com.discography.demo.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.discography.demo.model.Track;
 import com.discography.demo.repository.TrackRepository;
 
 @Service
@@ -13,5 +16,7 @@ public class TrackService {
         this.trackRepository = trackRepository;
     }
 
-    //Here'll be all the logic related with a Track
+    public List<Track> getAllTracks() {
+        return trackRepository.findAll();
+    }
 }
