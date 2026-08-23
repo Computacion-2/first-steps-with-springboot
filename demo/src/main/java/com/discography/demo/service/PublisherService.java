@@ -1,7 +1,10 @@
 package com.discography.demo.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.discography.demo.model.Publisher;
 import com.discography.demo.repository.PublisherRepository;
 
 @Service
@@ -13,5 +16,7 @@ public class PublisherService {
         this.publisherRepository = publisherRepository;
     }
 
-    //Here'll be all the logic related with a publisher
+    public List<Publisher> findTracksByNameArtist(String nameArtist) {
+        return publisherRepository.findByArtistName(nameArtist);
+    }
 }

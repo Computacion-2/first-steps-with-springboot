@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 //This is a middle entity, because relation between Artist and Tracker is many to many.
 @Entity
@@ -11,14 +13,20 @@ public class Publisher {
 
     @Id
     private String idPublisher;
-    private String idArtist;
-    private String idTrack;
+    
+    @ManyToOne
+    @JoinColumn(name = "artist_id")
+    private Artist artist;
+    
+    @ManyToOne
+    @JoinColumn(name = "track_id")
+    private Track track;
     private LocalDate releaseDate;
 
-    public Publisher(String idPublisher, String idArtist, String idTrack, LocalDate releaseDate) {
+    public Publisher(String idPublisher, Artist artist, Track track, LocalDate releaseDate) {
         this.idPublisher = idPublisher;
-        this.idArtist = idArtist;
-        this.idTrack = idTrack;
+        this.artist = artist;
+        this.track = track;
         this.releaseDate = releaseDate;
     }
 
@@ -33,20 +41,20 @@ public class Publisher {
         this.idPublisher = idPublisher;
     }
 
-    public String getIdArtist() {
-        return idArtist;
+    public Artist getArtist() {
+        return artist;
     }
 
-    public void setIdArtist(String idArtist) {
-        this.idArtist = idArtist;
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 
-    public String getIdTrack() {
-        return idTrack;
+    public Track getTrack() {
+        return track;
     }
 
-    public void setIdTrack(String idTrack) {
-        this.idTrack = idTrack;
+    public void setTrack(Track track) {
+        this.track = track;
     }
 
     public LocalDate getReleaseDate() {
