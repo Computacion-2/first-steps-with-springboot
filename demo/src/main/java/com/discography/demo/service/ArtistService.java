@@ -45,7 +45,7 @@ public class ArtistService {
     }
 
     private boolean removeArtistById(String idArtist) {
-        if (idArtist != null) return false;
+        if (idArtist == null) return false;
 
         artistRepository.deleteById(idArtist);
         return true;
