@@ -3,6 +3,7 @@ package com.discography.demo.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.discography.demo.model.Artist;
@@ -11,6 +12,7 @@ import com.discography.demo.repository.ArtistRepository;
 @Service
 public class ArtistService {
 
+    @Autowired 
     private final ArtistRepository artistRepository;
 
     public ArtistService(ArtistRepository artistRepository) {
@@ -44,7 +46,7 @@ public class ArtistService {
         return String.format("A%04d", updateId);
     }
 
-    private boolean removeArtistById(String idArtist) {
+    public boolean removeArtistById(String idArtist) {
         if (idArtist == null) return false;
 
         artistRepository.deleteById(idArtist);

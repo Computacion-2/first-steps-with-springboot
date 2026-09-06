@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.discography.demo.model.Artist;
@@ -15,6 +16,7 @@ import com.discography.demo.repository.PublisherRepository;
 @Service
 public class PublisherService {
     
+    @Autowired 
     private final PublisherRepository publisherRepository;
 
     public PublisherService(PublisherRepository publisherRepository) {
@@ -25,7 +27,7 @@ public class PublisherService {
         return publisherRepository.findByArtistName(nameArtist);
     }
 
-    private void addTrackToArtist(Artist artist, Track song) {
+    public void addTrackToArtist(Artist artist, Track song) {
         Publisher publisherToAdd = new Publisher(idGeneration(), artist, song, LocalDate.now());
         publisherRepository.save(publisherToAdd);
     }
