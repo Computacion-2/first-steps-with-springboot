@@ -1,7 +1,6 @@
-package com.discography.demo.service;
+package com.discography.demo.service.impl;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,9 +11,10 @@ import com.discography.demo.model.Artist;
 import com.discography.demo.model.Publisher;
 import com.discography.demo.model.Track;
 import com.discography.demo.repository.PublisherRepository;
+import com.discography.demo.service.interf.IPublisherService;
 
 @Service
-public class PublisherService {
+public class PublisherService implements IPublisherService {
     
     @Autowired 
     private final PublisherRepository publisherRepository;
@@ -23,10 +23,12 @@ public class PublisherService {
         this.publisherRepository = publisherRepository;
     }
 
+    @Override 
     public List<Publisher> findTracksByNameArtist(String nameArtist) {
         return publisherRepository.findByArtistName(nameArtist);
     }
 
+    @Override 
     public void addTrackToArtist(Artist artist, Track song) {
         Publisher publisherToAdd = new Publisher(idGeneration(), artist, song, LocalDate.now());
         publisherRepository.save(publisherToAdd);
