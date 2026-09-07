@@ -50,6 +50,16 @@ public class ArtistService implements IArtistService {
     }
 
     @Override
+    public Artist findByName(String name) {
+    return artistRepository.findByName(name); // O la lógica correspondiente en tu repositorio
+}
+
+    @Override
+public Artist findById(String id) {
+    return artistRepository.findById(id).orElse(null);
+}
+
+    @Override
     public boolean removeArtistById(String idArtist) {
         if (idArtist == null) return false;
 

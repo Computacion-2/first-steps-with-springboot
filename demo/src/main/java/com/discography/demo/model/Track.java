@@ -1,7 +1,13 @@
 package com.discography.demo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Track {
@@ -12,6 +18,14 @@ public class Track {
     private String genre;
     private int duration;
     private String albumTitle;
+
+    @ManyToMany
+    @JoinTable(
+        name = "track_artists",
+        joinColumns = @JoinColumn(name = "track_id"),
+        inverseJoinColumns = @JoinColumn(name = "artist_id")
+    )
+    private List<Artist> artists = new ArrayList<>();
     
     public Track(String idTrack, String title, String genre, int duration, String albumTitle) {
         this.idTrack = idTrack;
@@ -21,7 +35,6 @@ public class Track {
         this.albumTitle = albumTitle;
     }
 
-    //Empty Constructor (We don't want a Runtime Exception)
     public Track() {
     }
 
@@ -65,4 +78,11 @@ public class Track {
         this.albumTitle = albumTitle;
     }
 
+    public List<Artist> getArtists() {
+        return artists;
+    }
+
+    public void setArtists(List<Artist> artists) {
+        this.artists = artists;
+    }
 }

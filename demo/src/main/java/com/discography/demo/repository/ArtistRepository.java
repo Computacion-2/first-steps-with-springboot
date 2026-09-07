@@ -10,5 +10,8 @@ import com.discography.demo.model.Artist;
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist, String> {
     Optional<Artist> findTopByOrderByIdDesc();
+    
+    Artist findByName(String name);
+
 }
 

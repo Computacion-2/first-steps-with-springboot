@@ -31,4 +31,9 @@ public class TrackService implements ITrackService {
         trackRepository.deleteById(idTrack);
         return true;
     }
+
+    @Override
+    public Track save(Track track) {
+        return trackRepository.save(track);
+    }
 }

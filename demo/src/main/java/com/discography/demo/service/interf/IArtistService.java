@@ -6,10 +6,10 @@ import com.discography.demo.model.Artist;
 
 public interface IArtistService {
     
-    public List<Artist> getAllTheArtist();
-
-    public void addArtist(String nameArtist, String nationalityArtist);
-
-    public boolean removeArtistById(String idArtist);
+    List<Artist> getAllTheArtist();
+    void addArtist(String nameArtist, String nationalityArtist);
+    Artist findByName(String name);
+    Artist findById(String id);
+    boolean removeArtistById(String idArtist);
 
 }

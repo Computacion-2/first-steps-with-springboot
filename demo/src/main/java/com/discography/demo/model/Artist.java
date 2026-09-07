@@ -1,7 +1,11 @@
 package com.discography.demo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Artist {
@@ -10,6 +14,9 @@ public class Artist {
     private String idArtist;
     private String name;
     private String nationality;
+
+    @ManyToMany(mappedBy = "artists")
+    private List<Track> tracks = new ArrayList<>();
     
     public Artist(String idArtist, String name, String nationality) {
         this.idArtist = idArtist;
@@ -44,5 +51,12 @@ public class Artist {
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
-    
+
+    public List<Track> getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
+    }
 }
