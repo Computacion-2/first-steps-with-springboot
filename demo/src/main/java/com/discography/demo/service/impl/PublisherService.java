@@ -13,7 +13,7 @@ import com.discography.demo.model.Track;
 import com.discography.demo.repository.PublisherRepository;
 import com.discography.demo.service.interf.IPublisherService;
 
-@Service
+@Service("publisherService")
 public class PublisherService implements IPublisherService {
     
     @Autowired 
