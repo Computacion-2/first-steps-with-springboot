@@ -9,7 +9,7 @@ import com.discography.demo.model.Track;
 import com.discography.demo.repository.TrackRepository;
 import com.discography.demo.service.interf.ITrackService;
 
-@Service
+@Service("trackService")
 public class TrackService implements ITrackService {
     
     @Autowired 
