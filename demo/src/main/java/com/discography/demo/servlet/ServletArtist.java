@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.discography.demo.config.AppConfig;
 import com.discography.demo.model.Artist;
 import com.discography.demo.model.Track;
 import com.discography.demo.service.interf.IArtistService;
@@ -31,7 +30,7 @@ public class ServletArtist extends HttpServlet {
         // SELECCIONA LA OPCIÓN QUE QUIERAS PROBAR (Descomenta solo una):
 
         // Opción 1: Configuración basada en Java Config (@Configuration)
-        this.context = new AnnotationConfigApplicationContext(AppConfig.class);
+        this.context = new AnnotationConfigApplicationContext("com.discography.demo");
 
         // Opción 2: Configuración basada en archivo XML
         // this.context = new ClassPathXmlApplicationContext("applicationContext.xml");
