@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/artist")
+@WebServlet(name = "artistServlet", value = "/artist")
 public class ServletArtist extends HttpServlet {
     
     @Autowired 
@@ -52,7 +52,7 @@ public class ServletArtist extends HttpServlet {
         out.println("</ul>");
         out.println("<hr>");
         out.println("<h3>Register new artist</h3>");
-        out.println("<form method='post' action='complete here sori");
+        out.println("<form method='post' action='demo/artist");
         out.println("  Nombre: <input type='text' name='name' required /><br/>");
         out.println("  Email:  <input type='email' name='nationality' required /><br/><br/>");
         out.println("  <button type='submit'>Guardar</button>");
