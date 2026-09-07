@@ -10,7 +10,7 @@ import com.discography.demo.model.Artist;
 import com.discography.demo.repository.ArtistRepository;
 import com.discography.demo.service.interf.IArtistService;
 
-@Service
+@Service("artistService")
 public class ArtistService implements IArtistService {
 
     @Autowired 
