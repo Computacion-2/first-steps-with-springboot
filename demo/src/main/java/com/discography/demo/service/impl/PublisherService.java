@@ -36,7 +36,7 @@ public class PublisherService implements IPublisherService {
 
     private String idGeneration() {
 
-        Optional<Publisher> lastPublisher = publisherRepository.findTopByOrderByIdDesc();
+        Optional<Publisher> lastPublisher = publisherRepository.findTopByOrderByIdPublisherDesc();
 
         if (lastPublisher.isEmpty()) return "P00001";
 

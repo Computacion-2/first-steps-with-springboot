@@ -37,7 +37,7 @@ public class ArtistService implements IArtistService {
     //Asign a id to Artist with a defined format: "A0000x"
     private String idGeneration() {
 
-        Optional<Artist> lastOptionalArtist = artistRepository.findTopByOrderByIdDesc();
+        Optional<Artist> lastOptionalArtist = artistRepository.findTopByOrderByIdArtistDesc();
 
         if (lastOptionalArtist.isEmpty()) return "A00001";
 
